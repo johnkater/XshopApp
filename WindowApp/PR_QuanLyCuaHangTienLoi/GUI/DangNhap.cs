@@ -17,12 +17,13 @@ namespace GUI
     {
         TaiKhoan taikhoan = new TaiKhoan();
         TaiKhoanBLL tkBLL = new TaiKhoanBLL();
-
+        
         public DangNhap()
         {
             InitializeComponent();
             this.txtTenDangNhap.Clear();
             this.txtMatKhau.Clear();
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace GUI
         {
             taikhoan.TenTaiKhoan = txtTenDangNhap.Text;
             taikhoan.MatKhau = txtMatKhau.Text;
-
+            
             string getuser = tkBLL.CheckLogin(taikhoan);
 
             // phan hoi nguoi dung neu nghiep vu khong dung

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.hủyHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hàngHóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +49,6 @@
             this.baToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox_timkiem = new System.Windows.Forms.ComboBox();
             this.label_nv_dc = new System.Windows.Forms.Label();
             this.textBox_ncc_dc = new System.Windows.Forms.TextBox();
             this.textBox_ncc_sdt = new System.Windows.Forms.TextBox();
@@ -62,20 +61,16 @@
             this.textBox_ncc_tenncc = new System.Windows.Forms.TextBox();
             this.textBox_ncc_mancc = new System.Windows.Forms.TextBox();
             this.dataGridView_ncc = new System.Windows.Forms.DataGridView();
-            this.MaNhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox_ncc_hinhanh = new System.Windows.Forms.PictureBox();
             this.button_ncc_timkiem = new System.Windows.Forms.Button();
-            this.button_ncc_quaylai = new System.Windows.Forms.Button();
+            this.button_ncc_lammoi = new System.Windows.Forms.Button();
             this.button_ncc_huybo = new System.Windows.Forms.Button();
             this.button_ncc_xoa = new System.Windows.Forms.Button();
-            this.button_ncc_sua = new System.Windows.Forms.Button();
             this.button_ncc_them = new System.Windows.Forms.Button();
             this.button_ncc_luu = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_ncc_hinh = new System.Windows.Forms.TextBox();
+            this.textBox_timkiem = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ncc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ncc_hinhanh)).BeginInit();
@@ -118,7 +113,7 @@
             this.hoạtĐộngBánHàngToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(86, 28);
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(86, 27);
             this.báoCáoToolStripMenuItem.Text = "Báo cáo";
             // 
             // doanhThuToolStripMenuItem
@@ -137,7 +132,7 @@
             // 
             this.thôngTinToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(115, 28);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(115, 27);
             this.thôngTinToolStripMenuItem.Text = "Hướng dẫn";
             // 
             // label4
@@ -162,7 +157,7 @@
             this.nhàCungCấpToolStripMenuItem});
             this.quảnLýToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(85, 28);
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(85, 27);
             this.quảnLýToolStripMenuItem.Text = "Quản lý";
             // 
             // nhậpHàngToolStripMenuItem
@@ -184,9 +179,10 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1803, 29);
             this.menuStrip1.TabIndex = 139;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -195,21 +191,23 @@
             this.thoátToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(99, 28);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(99, 27);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             this.hệThốngToolStripMenuItem.Click += new System.EventHandler(this.hệThốngToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
             this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // baToolStripMenuItem
             // 
@@ -219,7 +217,7 @@
             this.hủyHàngToolStripMenuItem});
             this.baToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.baToolStripMenuItem.Name = "baToolStripMenuItem";
-            this.baToolStripMenuItem.Size = new System.Drawing.Size(99, 28);
+            this.baToolStripMenuItem.Size = new System.Drawing.Size(99, 27);
             this.baToolStripMenuItem.Text = "Giao dịch";
             // 
             // bánHàngToolStripMenuItem
@@ -234,30 +232,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Brown;
-            this.label3.Location = new System.Drawing.Point(1667, 338);
+            this.label3.Location = new System.Drawing.Point(1646, 343);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 31);
             this.label3.TabIndex = 138;
             this.label3.Text = "Hình ảnh";
-            // 
-            // comboBox_timkiem
-            // 
-            this.comboBox_timkiem.AllowDrop = true;
-            this.comboBox_timkiem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_timkiem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_timkiem.BackColor = System.Drawing.Color.DarkGray;
-            this.comboBox_timkiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBox_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_timkiem.ForeColor = System.Drawing.Color.Blue;
-            this.comboBox_timkiem.FormattingEnabled = true;
-            this.comboBox_timkiem.IntegralHeight = false;
-            this.comboBox_timkiem.ItemHeight = 29;
-            this.comboBox_timkiem.Location = new System.Drawing.Point(232, 411);
-            this.comboBox_timkiem.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_timkiem.Name = "comboBox_timkiem";
-            this.comboBox_timkiem.Size = new System.Drawing.Size(277, 38);
-            this.comboBox_timkiem.TabIndex = 133;
             // 
             // label_nv_dc
             // 
@@ -265,7 +245,7 @@
             this.label_nv_dc.BackColor = System.Drawing.Color.Transparent;
             this.label_nv_dc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nv_dc.ForeColor = System.Drawing.Color.Brown;
-            this.label_nv_dc.Location = new System.Drawing.Point(71, 320);
+            this.label_nv_dc.Location = new System.Drawing.Point(148, 320);
             this.label_nv_dc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nv_dc.Name = "label_nv_dc";
             this.label_nv_dc.Size = new System.Drawing.Size(104, 31);
@@ -275,23 +255,23 @@
             // textBox_ncc_dc
             // 
             this.textBox_ncc_dc.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ncc_dc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_dc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ncc_dc.ForeColor = System.Drawing.Color.Blue;
             this.textBox_ncc_dc.Location = new System.Drawing.Point(322, 312);
             this.textBox_ncc_dc.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_ncc_dc.Multiline = true;
             this.textBox_ncc_dc.Name = "textBox_ncc_dc";
-            this.textBox_ncc_dc.Size = new System.Drawing.Size(1070, 56);
+            this.textBox_ncc_dc.Size = new System.Drawing.Size(364, 56);
             this.textBox_ncc_dc.TabIndex = 125;
             // 
             // textBox_ncc_sdt
             // 
             this.textBox_ncc_sdt.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ncc_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ncc_sdt.ForeColor = System.Drawing.Color.Blue;
-            this.textBox_ncc_sdt.Location = new System.Drawing.Point(931, 230);
+            this.textBox_ncc_sdt.Location = new System.Drawing.Point(949, 227);
             this.textBox_ncc_sdt.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_ncc_sdt.MaxLength = 11;
+            this.textBox_ncc_sdt.MaxLength = 13;
             this.textBox_ncc_sdt.Multiline = true;
             this.textBox_ncc_sdt.Name = "textBox_ncc_sdt";
             this.textBox_ncc_sdt.Size = new System.Drawing.Size(461, 56);
@@ -300,9 +280,9 @@
             // textBox_ncc_email
             // 
             this.textBox_ncc_email.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ncc_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ncc_email.ForeColor = System.Drawing.Color.Blue;
-            this.textBox_ncc_email.Location = new System.Drawing.Point(931, 141);
+            this.textBox_ncc_email.Location = new System.Drawing.Point(949, 141);
             this.textBox_ncc_email.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_ncc_email.Multiline = true;
             this.textBox_ncc_email.Name = "textBox_ncc_email";
@@ -328,7 +308,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Lime;
-            this.label1.Location = new System.Drawing.Point(56, 414);
+            this.label1.Location = new System.Drawing.Point(160, 414);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 29);
@@ -354,7 +334,7 @@
             this.label_ncc_tenncc.BackColor = System.Drawing.Color.Transparent;
             this.label_ncc_tenncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ncc_tenncc.ForeColor = System.Drawing.Color.Brown;
-            this.label_ncc_tenncc.Location = new System.Drawing.Point(14, 235);
+            this.label_ncc_tenncc.Location = new System.Drawing.Point(6, 235);
             this.label_ncc_tenncc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ncc_tenncc.Name = "label_ncc_tenncc";
             this.label_ncc_tenncc.Size = new System.Drawing.Size(246, 31);
@@ -377,7 +357,7 @@
             // textBox_ncc_tenncc
             // 
             this.textBox_ncc_tenncc.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ncc_tenncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_tenncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ncc_tenncc.ForeColor = System.Drawing.Color.Blue;
             this.textBox_ncc_tenncc.Location = new System.Drawing.Point(321, 227);
             this.textBox_ncc_tenncc.Margin = new System.Windows.Forms.Padding(4);
@@ -390,7 +370,7 @@
             // textBox_ncc_mancc
             // 
             this.textBox_ncc_mancc.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ncc_mancc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_mancc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ncc_mancc.ForeColor = System.Drawing.Color.Blue;
             this.textBox_ncc_mancc.Location = new System.Drawing.Point(321, 141);
             this.textBox_ncc_mancc.Margin = new System.Windows.Forms.Padding(4);
@@ -402,95 +382,42 @@
             // dataGridView_ncc
             // 
             this.dataGridView_ncc.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ncc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ncc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_ncc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_ncc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaNhaCungCap,
-            this.TenNhaCungCap,
-            this.DiaChi,
-            this.SoDienThoai,
-            this.Email,
-            this.HinhAnh});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_ncc.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView_ncc.Location = new System.Drawing.Point(-43, 469);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_ncc.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView_ncc.Location = new System.Drawing.Point(13, 469);
             this.dataGridView_ncc.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_ncc.Name = "dataGridView_ncc";
             this.dataGridView_ncc.ReadOnly = true;
             this.dataGridView_ncc.RowHeadersWidth = 51;
-            this.dataGridView_ncc.Size = new System.Drawing.Size(2011, 564);
+            this.dataGridView_ncc.Size = new System.Drawing.Size(2021, 504);
             this.dataGridView_ncc.TabIndex = 110;
             this.dataGridView_ncc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_nv_CellContentClick);
-            // 
-            // MaNhaCungCap
-            // 
-            this.MaNhaCungCap.HeaderText = "Mã nhà cung cấp";
-            this.MaNhaCungCap.MinimumWidth = 6;
-            this.MaNhaCungCap.Name = "MaNhaCungCap";
-            this.MaNhaCungCap.ReadOnly = true;
-            this.MaNhaCungCap.Width = 200;
-            // 
-            // TenNhaCungCap
-            // 
-            this.TenNhaCungCap.HeaderText = "Tên nhà cung cấp";
-            this.TenNhaCungCap.MinimumWidth = 6;
-            this.TenNhaCungCap.Name = "TenNhaCungCap";
-            this.TenNhaCungCap.ReadOnly = true;
-            this.TenNhaCungCap.Width = 400;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 500;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.HeaderText = "Số điện thoại";
-            this.SoDienThoai.MinimumWidth = 6;
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            this.SoDienThoai.Width = 250;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 300;
-            // 
-            // HinhAnh
-            // 
-            this.HinhAnh.HeaderText = "Hình ảnh";
-            this.HinhAnh.MinimumWidth = 6;
-            this.HinhAnh.Name = "HinhAnh";
-            this.HinhAnh.ReadOnly = true;
-            this.HinhAnh.Width = 300;
             // 
             // pictureBox_ncc_hinhanh
             // 
             this.pictureBox_ncc_hinhanh.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_ncc_hinhanh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox_ncc_hinhanh.Location = new System.Drawing.Point(1578, 33);
+            this.pictureBox_ncc_hinhanh.InitialImage = global::GUI.Properties.Resources._1598352;
+            this.pictureBox_ncc_hinhanh.Location = new System.Drawing.Point(1527, 43);
             this.pictureBox_ncc_hinhanh.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_ncc_hinhanh.Name = "pictureBox_ncc_hinhanh";
             this.pictureBox_ncc_hinhanh.Size = new System.Drawing.Size(337, 296);
+            this.pictureBox_ncc_hinhanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_ncc_hinhanh.TabIndex = 135;
             this.pictureBox_ncc_hinhanh.TabStop = false;
             // 
@@ -502,33 +429,35 @@
             this.button_ncc_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_ncc_timkiem.ForeColor = System.Drawing.Color.Red;
             this.button_ncc_timkiem.Image = global::GUI.Properties.Resources._1438980118_search_icon_tm1;
-            this.button_ncc_timkiem.Location = new System.Drawing.Point(556, 408);
+            this.button_ncc_timkiem.Location = new System.Drawing.Point(611, 404);
             this.button_ncc_timkiem.Margin = new System.Windows.Forms.Padding(4);
             this.button_ncc_timkiem.Name = "button_ncc_timkiem";
-            this.button_ncc_timkiem.Size = new System.Drawing.Size(92, 53);
+            this.button_ncc_timkiem.Size = new System.Drawing.Size(72, 57);
             this.button_ncc_timkiem.TabIndex = 132;
             this.button_ncc_timkiem.UseVisualStyleBackColor = false;
+            this.button_ncc_timkiem.Click += new System.EventHandler(this.button_ncc_timkiem_Click);
             // 
-            // button_ncc_quaylai
+            // button_ncc_lammoi
             // 
-            this.button_ncc_quaylai.BackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_quaylai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_ncc_quaylai.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
-            this.button_ncc_quaylai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_quaylai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_quaylai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ncc_quaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ncc_quaylai.ForeColor = System.Drawing.Color.Lime;
-            this.button_ncc_quaylai.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_reload1;
-            this.button_ncc_quaylai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_quaylai.Location = new System.Drawing.Point(1684, 397);
-            this.button_ncc_quaylai.Margin = new System.Windows.Forms.Padding(4);
-            this.button_ncc_quaylai.Name = "button_ncc_quaylai";
-            this.button_ncc_quaylai.Size = new System.Drawing.Size(231, 64);
-            this.button_ncc_quaylai.TabIndex = 128;
-            this.button_ncc_quaylai.Text = "QUAY LẠI";
-            this.button_ncc_quaylai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_ncc_quaylai.UseVisualStyleBackColor = false;
+            this.button_ncc_lammoi.BackColor = System.Drawing.Color.Transparent;
+            this.button_ncc_lammoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_ncc_lammoi.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
+            this.button_ncc_lammoi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button_ncc_lammoi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button_ncc_lammoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_ncc_lammoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ncc_lammoi.ForeColor = System.Drawing.Color.Lime;
+            this.button_ncc_lammoi.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_reload1;
+            this.button_ncc_lammoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ncc_lammoi.Location = new System.Drawing.Point(1708, 396);
+            this.button_ncc_lammoi.Margin = new System.Windows.Forms.Padding(4);
+            this.button_ncc_lammoi.Name = "button_ncc_lammoi";
+            this.button_ncc_lammoi.Size = new System.Drawing.Size(231, 64);
+            this.button_ncc_lammoi.TabIndex = 128;
+            this.button_ncc_lammoi.Text = "LÀM MỚI";
+            this.button_ncc_lammoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_ncc_lammoi.UseVisualStyleBackColor = false;
+            this.button_ncc_lammoi.Click += new System.EventHandler(this.button_ncc_quaylai_Click);
             // 
             // button_ncc_huybo
             // 
@@ -541,7 +470,7 @@
             this.button_ncc_huybo.ForeColor = System.Drawing.Color.Lime;
             this.button_ncc_huybo.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_stop2;
             this.button_ncc_huybo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_huybo.Location = new System.Drawing.Point(1483, 397);
+            this.button_ncc_huybo.Location = new System.Drawing.Point(1498, 397);
             this.button_ncc_huybo.Margin = new System.Windows.Forms.Padding(4);
             this.button_ncc_huybo.Name = "button_ncc_huybo";
             this.button_ncc_huybo.Size = new System.Drawing.Size(193, 64);
@@ -549,6 +478,7 @@
             this.button_ncc_huybo.Text = "HỦY BỎ";
             this.button_ncc_huybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_ncc_huybo.UseVisualStyleBackColor = false;
+            this.button_ncc_huybo.Click += new System.EventHandler(this.button_ncc_huybo_Click);
             // 
             // button_ncc_xoa
             // 
@@ -561,7 +491,7 @@
             this.button_ncc_xoa.ForeColor = System.Drawing.Color.Lime;
             this.button_ncc_xoa.Image = global::GUI.Properties.Resources._1439855765_1_042;
             this.button_ncc_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_xoa.Location = new System.Drawing.Point(1300, 397);
+            this.button_ncc_xoa.Location = new System.Drawing.Point(1314, 397);
             this.button_ncc_xoa.Margin = new System.Windows.Forms.Padding(4);
             this.button_ncc_xoa.Name = "button_ncc_xoa";
             this.button_ncc_xoa.Size = new System.Drawing.Size(167, 64);
@@ -569,26 +499,7 @@
             this.button_ncc_xoa.Text = "XÓA";
             this.button_ncc_xoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_ncc_xoa.UseVisualStyleBackColor = false;
-            // 
-            // button_ncc_sua
-            // 
-            this.button_ncc_sua.BackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_sua.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
-            this.button_ncc_sua.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_sua.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_ncc_sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ncc_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ncc_sua.ForeColor = System.Drawing.Color.Lime;
-            this.button_ncc_sua.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_app_package_settings1;
-            this.button_ncc_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_sua.Location = new System.Drawing.Point(1117, 397);
-            this.button_ncc_sua.Margin = new System.Windows.Forms.Padding(4);
-            this.button_ncc_sua.Name = "button_ncc_sua";
-            this.button_ncc_sua.Size = new System.Drawing.Size(167, 64);
-            this.button_ncc_sua.TabIndex = 113;
-            this.button_ncc_sua.Text = "SỬA";
-            this.button_ncc_sua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_ncc_sua.UseVisualStyleBackColor = false;
+            this.button_ncc_xoa.Click += new System.EventHandler(this.button_ncc_xoa_Click);
             // 
             // button_ncc_them
             // 
@@ -601,7 +512,7 @@
             this.button_ncc_them.ForeColor = System.Drawing.Color.Lime;
             this.button_ncc_them.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_db_add1;
             this.button_ncc_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_them.Location = new System.Drawing.Point(752, 397);
+            this.button_ncc_them.Location = new System.Drawing.Point(949, 397);
             this.button_ncc_them.Margin = new System.Windows.Forms.Padding(4);
             this.button_ncc_them.Name = "button_ncc_them";
             this.button_ncc_them.Size = new System.Drawing.Size(167, 64);
@@ -609,6 +520,7 @@
             this.button_ncc_them.Text = "THÊM";
             this.button_ncc_them.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_ncc_them.UseVisualStyleBackColor = false;
+            this.button_ncc_them.Click += new System.EventHandler(this.button_ncc_them_Click);
             // 
             // button_ncc_luu
             // 
@@ -621,7 +533,7 @@
             this.button_ncc_luu.ForeColor = System.Drawing.Color.Lime;
             this.button_ncc_luu.Image = global::GUI.Properties.Resources.Save_as_icon1;
             this.button_ncc_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ncc_luu.Location = new System.Drawing.Point(935, 397);
+            this.button_ncc_luu.Location = new System.Drawing.Point(1132, 397);
             this.button_ncc_luu.Margin = new System.Windows.Forms.Padding(4);
             this.button_ncc_luu.Name = "button_ncc_luu";
             this.button_ncc_luu.Size = new System.Drawing.Size(167, 64);
@@ -629,23 +541,64 @@
             this.button_ncc_luu.Text = "LƯU";
             this.button_ncc_luu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_ncc_luu.UseVisualStyleBackColor = false;
+            this.button_ncc_luu.Click += new System.EventHandler(this.button_ncc_luu_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Brown;
+            this.label2.Location = new System.Drawing.Point(723, 320);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 31);
+            this.label2.TabIndex = 141;
+            this.label2.Text = "Link hình ảnh";
+            // 
+            // textBox_ncc_hinh
+            // 
+            this.textBox_ncc_hinh.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_ncc_hinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ncc_hinh.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_ncc_hinh.Location = new System.Drawing.Point(949, 312);
+            this.textBox_ncc_hinh.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_ncc_hinh.MaxLength = 2000;
+            this.textBox_ncc_hinh.Multiline = true;
+            this.textBox_ncc_hinh.Name = "textBox_ncc_hinh";
+            this.textBox_ncc_hinh.Size = new System.Drawing.Size(461, 56);
+            this.textBox_ncc_hinh.TabIndex = 142;
+            // 
+            // textBox_timkiem
+            // 
+            this.textBox_timkiem.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_timkiem.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_timkiem.Location = new System.Drawing.Point(322, 405);
+            this.textBox_timkiem.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_timkiem.Multiline = true;
+            this.textBox_timkiem.Name = "textBox_timkiem";
+            this.textBox_timkiem.Size = new System.Drawing.Size(281, 56);
+            this.textBox_timkiem.TabIndex = 143;
+            this.textBox_timkiem.TextChanged += new System.EventHandler(this.textBox_timkiem_TextChanged);
             // 
             // NhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1033);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(1803, 1011);
+            this.Controls.Add(this.textBox_timkiem);
             this.Controls.Add(this.pictureBox_ncc_hinhanh);
+            this.Controls.Add(this.textBox_ncc_hinh);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button_ncc_timkiem);
-            this.Controls.Add(this.button_ncc_quaylai);
+            this.Controls.Add(this.button_ncc_lammoi);
             this.Controls.Add(this.button_ncc_huybo);
             this.Controls.Add(this.button_ncc_xoa);
-            this.Controls.Add(this.button_ncc_sua);
             this.Controls.Add(this.button_ncc_them);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox_timkiem);
             this.Controls.Add(this.label_nv_dc);
             this.Controls.Add(this.textBox_ncc_dc);
             this.Controls.Add(this.textBox_ncc_sdt);
@@ -660,7 +613,10 @@
             this.Controls.Add(this.dataGridView_ncc);
             this.Controls.Add(this.button_ncc_luu);
             this.Name = "NhaCungCap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NhaCungCap";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.NhaCungCap_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ncc)).EndInit();
@@ -685,10 +641,9 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox_ncc_hinhanh;
         private System.Windows.Forms.Button button_ncc_timkiem;
-        private System.Windows.Forms.Button button_ncc_quaylai;
+        private System.Windows.Forms.Button button_ncc_lammoi;
         private System.Windows.Forms.Button button_ncc_huybo;
         private System.Windows.Forms.Button button_ncc_xoa;
-        private System.Windows.Forms.Button button_ncc_sua;
         private System.Windows.Forms.Button button_ncc_them;
         private System.Windows.Forms.ToolStripMenuItem nhậpHàngToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -698,7 +653,6 @@
         private System.Windows.Forms.ToolStripMenuItem baToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bánHàngToolStripMenuItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox_timkiem;
         private System.Windows.Forms.Label label_nv_dc;
         private System.Windows.Forms.TextBox textBox_ncc_dc;
         private System.Windows.Forms.TextBox textBox_ncc_sdt;
@@ -712,11 +666,8 @@
         private System.Windows.Forms.TextBox textBox_ncc_mancc;
         private System.Windows.Forms.DataGridView dataGridView_ncc;
         private System.Windows.Forms.Button button_ncc_luu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNhaCungCap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNhaCungCap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnh;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_ncc_hinh;
+        private System.Windows.Forms.TextBox textBox_timkiem;
     }
 }

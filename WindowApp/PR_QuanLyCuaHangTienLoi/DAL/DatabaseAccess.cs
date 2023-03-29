@@ -56,6 +56,17 @@ namespace DAL
             return user;
 
         }
+        // Execution sql for create, update and delete data
+        public void executionCommand(string sqlCommand)
+        {
+            SqlConnection conn = SqlConnectionData.Connect();
+            conn.Open();
+            SqlCommand command = new SqlCommand(sqlCommand, conn);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            conn.Close();
+
+        }
 
     }
 }

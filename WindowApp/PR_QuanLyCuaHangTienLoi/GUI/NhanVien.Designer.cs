@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.comboBox_timkiem = new System.Windows.Forms.ComboBox();
             this.dateTimePicker_ns = new System.Windows.Forms.DateTimePicker();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -38,7 +37,7 @@
             this.label_nv_dc = new System.Windows.Forms.Label();
             this.textBox_nv_dc = new System.Windows.Forms.TextBox();
             this.textBox_nv_sdt = new System.Windows.Forms.TextBox();
-            this.textBox_nv_macv = new System.Windows.Forms.TextBox();
+            this.textBox_nv_email = new System.Windows.Forms.TextBox();
             this.label_nv_macv = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label_nv_sdt = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@
             this.textBox_nv_manv = new System.Windows.Forms.TextBox();
             this.dataGridView_nv = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_nv_quequan = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,45 +68,20 @@
             this.hoạtĐộngBánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox_bh = new System.Windows.Forms.PictureBox();
             this.button_nv_timkiem = new System.Windows.Forms.Button();
-            this.button_nv_tc = new System.Windows.Forms.Button();
+            this.button_nv_lammoi = new System.Windows.Forms.Button();
             this.button_nv_huybo = new System.Windows.Forms.Button();
             this.button_nv_xoa = new System.Windows.Forms.Button();
-            this.button_nv_sua = new System.Windows.Forms.Button();
             this.button_nv_luu = new System.Windows.Forms.Button();
             this.button_nv_them = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox_nv_link = new System.Windows.Forms.TextBox();
+            this.textBox_nv_timkiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_nv)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bh)).BeginInit();
             this.SuspendLayout();
-            // 
-            // comboBox_timkiem
-            // 
-            this.comboBox_timkiem.AllowDrop = true;
-            this.comboBox_timkiem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_timkiem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_timkiem.BackColor = System.Drawing.Color.DarkGray;
-            this.comboBox_timkiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBox_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_timkiem.ForeColor = System.Drawing.Color.Blue;
-            this.comboBox_timkiem.FormattingEnabled = true;
-            this.comboBox_timkiem.IntegralHeight = false;
-            this.comboBox_timkiem.ItemHeight = 29;
-            this.comboBox_timkiem.Location = new System.Drawing.Point(275, 411);
-            this.comboBox_timkiem.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_timkiem.Name = "comboBox_timkiem";
-            this.comboBox_timkiem.Size = new System.Drawing.Size(277, 38);
-            this.comboBox_timkiem.TabIndex = 102;
             // 
             // dateTimePicker_ns
             // 
@@ -129,7 +103,7 @@
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.Color.DeepPink;
-            this.radioButton2.Location = new System.Drawing.Point(1385, 171);
+            this.radioButton2.Location = new System.Drawing.Point(1354, 171);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(67, 33);
@@ -144,7 +118,7 @@
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton1.Location = new System.Drawing.Point(1385, 129);
+            this.radioButton1.Location = new System.Drawing.Point(1354, 129);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(88, 33);
@@ -159,7 +133,7 @@
             this.label_nv_gt.BackColor = System.Drawing.Color.Transparent;
             this.label_nv_gt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nv_gt.ForeColor = System.Drawing.Color.Brown;
-            this.label_nv_gt.Location = new System.Drawing.Point(1213, 149);
+            this.label_nv_gt.Location = new System.Drawing.Point(1213, 155);
             this.label_nv_gt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nv_gt.Name = "label_nv_gt";
             this.label_nv_gt.Size = new System.Drawing.Size(122, 31);
@@ -172,7 +146,7 @@
             this.label_nv_dc.BackColor = System.Drawing.Color.Transparent;
             this.label_nv_dc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nv_dc.ForeColor = System.Drawing.Color.Brown;
-            this.label_nv_dc.Location = new System.Drawing.Point(630, 320);
+            this.label_nv_dc.Location = new System.Drawing.Point(615, 320);
             this.label_nv_dc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nv_dc.Name = "label_nv_dc";
             this.label_nv_dc.Size = new System.Drawing.Size(104, 31);
@@ -184,11 +158,11 @@
             this.textBox_nv_dc.BackColor = System.Drawing.Color.LightGray;
             this.textBox_nv_dc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_nv_dc.ForeColor = System.Drawing.Color.Blue;
-            this.textBox_nv_dc.Location = new System.Drawing.Point(835, 312);
+            this.textBox_nv_dc.Location = new System.Drawing.Point(820, 312);
             this.textBox_nv_dc.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_nv_dc.Multiline = true;
             this.textBox_nv_dc.Name = "textBox_nv_dc";
-            this.textBox_nv_dc.Size = new System.Drawing.Size(754, 56);
+            this.textBox_nv_dc.Size = new System.Drawing.Size(360, 56);
             this.textBox_nv_dc.TabIndex = 94;
             // 
             // textBox_nv_sdt
@@ -196,7 +170,7 @@
             this.textBox_nv_sdt.BackColor = System.Drawing.Color.LightGray;
             this.textBox_nv_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_nv_sdt.ForeColor = System.Drawing.Color.Blue;
-            this.textBox_nv_sdt.Location = new System.Drawing.Point(835, 230);
+            this.textBox_nv_sdt.Location = new System.Drawing.Point(820, 230);
             this.textBox_nv_sdt.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_nv_sdt.MaxLength = 11;
             this.textBox_nv_sdt.Multiline = true;
@@ -204,17 +178,17 @@
             this.textBox_nv_sdt.Size = new System.Drawing.Size(360, 56);
             this.textBox_nv_sdt.TabIndex = 93;
             // 
-            // textBox_nv_macv
+            // textBox_nv_email
             // 
-            this.textBox_nv_macv.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_nv_macv.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nv_macv.ForeColor = System.Drawing.Color.Blue;
-            this.textBox_nv_macv.Location = new System.Drawing.Point(835, 141);
-            this.textBox_nv_macv.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_nv_macv.Multiline = true;
-            this.textBox_nv_macv.Name = "textBox_nv_macv";
-            this.textBox_nv_macv.Size = new System.Drawing.Size(356, 56);
-            this.textBox_nv_macv.TabIndex = 92;
+            this.textBox_nv_email.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_nv_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nv_email.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_nv_email.Location = new System.Drawing.Point(820, 141);
+            this.textBox_nv_email.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nv_email.Multiline = true;
+            this.textBox_nv_email.Name = "textBox_nv_email";
+            this.textBox_nv_email.Size = new System.Drawing.Size(356, 56);
+            this.textBox_nv_email.TabIndex = 92;
             // 
             // label_nv_macv
             // 
@@ -222,7 +196,7 @@
             this.label_nv_macv.BackColor = System.Drawing.Color.Transparent;
             this.label_nv_macv.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nv_macv.ForeColor = System.Drawing.Color.Brown;
-            this.label_nv_macv.Location = new System.Drawing.Point(630, 155);
+            this.label_nv_macv.Location = new System.Drawing.Point(615, 155);
             this.label_nv_macv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nv_macv.Name = "label_nv_macv";
             this.label_nv_macv.Size = new System.Drawing.Size(86, 31);
@@ -249,7 +223,7 @@
             this.label_nv_sdt.BackColor = System.Drawing.Color.Transparent;
             this.label_nv_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nv_sdt.ForeColor = System.Drawing.Color.Brown;
-            this.label_nv_sdt.Location = new System.Drawing.Point(630, 232);
+            this.label_nv_sdt.Location = new System.Drawing.Point(615, 232);
             this.label_nv_sdt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nv_sdt.Name = "label_nv_sdt";
             this.label_nv_sdt.Size = new System.Drawing.Size(184, 31);
@@ -331,16 +305,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_nv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_nv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_nv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column6,
-            this.Column7,
-            this.Column4,
-            this.Column5,
-            this.Email,
-            this.QueQuan,
-            this.HinhAnh});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,12 +313,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView_nv.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView_nv.Location = new System.Drawing.Point(0, 469);
+            this.dataGridView_nv.Location = new System.Drawing.Point(16, 469);
             this.dataGridView_nv.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_nv.Name = "dataGridView_nv";
             this.dataGridView_nv.ReadOnly = true;
             this.dataGridView_nv.RowHeadersWidth = 51;
-            this.dataGridView_nv.Size = new System.Drawing.Size(2011, 564);
+            this.dataGridView_nv.Size = new System.Drawing.Size(2016, 506);
             this.dataGridView_nv.TabIndex = 79;
             this.dataGridView_nv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_nv_CellContentClick);
             // 
@@ -364,24 +328,24 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Brown;
-            this.label2.Location = new System.Drawing.Point(1211, 243);
+            this.label2.Location = new System.Drawing.Point(1203, 243);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 31);
             this.label2.TabIndex = 106;
             this.label2.Text = "Quê quán";
             // 
-            // textBox1
+            // textBox_nv_quequan
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightGray;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Blue;
-            this.textBox1.Location = new System.Drawing.Point(1359, 229);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 56);
-            this.textBox1.TabIndex = 105;
+            this.textBox_nv_quequan.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_nv_quequan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nv_quequan.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_nv_quequan.Location = new System.Drawing.Point(1354, 229);
+            this.textBox_nv_quequan.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nv_quequan.Multiline = true;
+            this.textBox_nv_quequan.Name = "textBox_nv_quequan";
+            this.textBox_nv_quequan.Size = new System.Drawing.Size(244, 56);
+            this.textBox_nv_quequan.TabIndex = 105;
             // 
             // label3
             // 
@@ -545,92 +509,15 @@
             this.label4.TabIndex = 109;
             this.label4.Text = "Quản Lý Nhân Viên";
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaNV";
-            this.Column1.HeaderText = "Mã nhân viên";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "TenNV";
-            this.Column2.HeaderText = "Tên nhân viên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "GioiTinh";
-            this.Column6.HeaderText = "Giới tính";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "NgaySinh";
-            this.Column7.HeaderText = "Ngày sinh";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "DiaChiNV";
-            this.Column4.HeaderText = "Địa chỉ";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "SDTNV";
-            this.Column5.HeaderText = "Số điện thoại";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 125;
-            // 
-            // QueQuan
-            // 
-            this.QueQuan.HeaderText = "Quê quán";
-            this.QueQuan.MinimumWidth = 6;
-            this.QueQuan.Name = "QueQuan";
-            this.QueQuan.ReadOnly = true;
-            this.QueQuan.Width = 125;
-            // 
-            // HinhAnh
-            // 
-            this.HinhAnh.HeaderText = "Hình Ảnh";
-            this.HinhAnh.MinimumWidth = 6;
-            this.HinhAnh.Name = "HinhAnh";
-            this.HinhAnh.ReadOnly = true;
-            this.HinhAnh.Width = 125;
-            // 
             // pictureBox_bh
             // 
             this.pictureBox_bh.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_bh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox_bh.Location = new System.Drawing.Point(1621, 33);
+            this.pictureBox_bh.Location = new System.Drawing.Point(1622, 33);
             this.pictureBox_bh.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_bh.Name = "pictureBox_bh";
-            this.pictureBox_bh.Size = new System.Drawing.Size(337, 296);
+            this.pictureBox_bh.Size = new System.Drawing.Size(323, 296);
+            this.pictureBox_bh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_bh.TabIndex = 104;
             this.pictureBox_bh.TabStop = false;
             // 
@@ -642,33 +529,35 @@
             this.button_nv_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_nv_timkiem.ForeColor = System.Drawing.Color.Red;
             this.button_nv_timkiem.Image = global::GUI.Properties.Resources._1438980118_search_icon_tm1;
-            this.button_nv_timkiem.Location = new System.Drawing.Point(599, 408);
+            this.button_nv_timkiem.Location = new System.Drawing.Point(599, 405);
             this.button_nv_timkiem.Margin = new System.Windows.Forms.Padding(4);
             this.button_nv_timkiem.Name = "button_nv_timkiem";
-            this.button_nv_timkiem.Size = new System.Drawing.Size(92, 53);
+            this.button_nv_timkiem.Size = new System.Drawing.Size(92, 56);
             this.button_nv_timkiem.TabIndex = 101;
             this.button_nv_timkiem.UseVisualStyleBackColor = false;
+            this.button_nv_timkiem.Click += new System.EventHandler(this.button_nv_timkiem_Click);
             // 
-            // button_nv_tc
+            // button_nv_lammoi
             // 
-            this.button_nv_tc.BackColor = System.Drawing.Color.Transparent;
-            this.button_nv_tc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_nv_tc.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
-            this.button_nv_tc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_nv_tc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_nv_tc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_nv_tc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_nv_tc.ForeColor = System.Drawing.Color.Lime;
-            this.button_nv_tc.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_reload1;
-            this.button_nv_tc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv_tc.Location = new System.Drawing.Point(1727, 397);
-            this.button_nv_tc.Margin = new System.Windows.Forms.Padding(4);
-            this.button_nv_tc.Name = "button_nv_tc";
-            this.button_nv_tc.Size = new System.Drawing.Size(231, 64);
-            this.button_nv_tc.TabIndex = 97;
-            this.button_nv_tc.Text = "QUAY LẠI";
-            this.button_nv_tc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_nv_tc.UseVisualStyleBackColor = false;
+            this.button_nv_lammoi.BackColor = System.Drawing.Color.Transparent;
+            this.button_nv_lammoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_nv_lammoi.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
+            this.button_nv_lammoi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button_nv_lammoi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button_nv_lammoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_nv_lammoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_nv_lammoi.ForeColor = System.Drawing.Color.Lime;
+            this.button_nv_lammoi.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_reload1;
+            this.button_nv_lammoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_nv_lammoi.Location = new System.Drawing.Point(1727, 397);
+            this.button_nv_lammoi.Margin = new System.Windows.Forms.Padding(4);
+            this.button_nv_lammoi.Name = "button_nv_lammoi";
+            this.button_nv_lammoi.Size = new System.Drawing.Size(231, 64);
+            this.button_nv_lammoi.TabIndex = 97;
+            this.button_nv_lammoi.Text = "LÀM MỚI";
+            this.button_nv_lammoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_nv_lammoi.UseVisualStyleBackColor = false;
+            this.button_nv_lammoi.Click += new System.EventHandler(this.button_nv_lammoi_Click);
             // 
             // button_nv_huybo
             // 
@@ -681,7 +570,7 @@
             this.button_nv_huybo.ForeColor = System.Drawing.Color.Lime;
             this.button_nv_huybo.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_stop2;
             this.button_nv_huybo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv_huybo.Location = new System.Drawing.Point(1526, 397);
+            this.button_nv_huybo.Location = new System.Drawing.Point(1522, 397);
             this.button_nv_huybo.Margin = new System.Windows.Forms.Padding(4);
             this.button_nv_huybo.Name = "button_nv_huybo";
             this.button_nv_huybo.Size = new System.Drawing.Size(193, 64);
@@ -689,6 +578,7 @@
             this.button_nv_huybo.Text = "HỦY BỎ";
             this.button_nv_huybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_nv_huybo.UseVisualStyleBackColor = false;
+            this.button_nv_huybo.Click += new System.EventHandler(this.button_nv_huybo_Click);
             // 
             // button_nv_xoa
             // 
@@ -709,26 +599,7 @@
             this.button_nv_xoa.Text = "XÓA";
             this.button_nv_xoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_nv_xoa.UseVisualStyleBackColor = false;
-            // 
-            // button_nv_sua
-            // 
-            this.button_nv_sua.BackColor = System.Drawing.Color.Transparent;
-            this.button_nv_sua.FlatAppearance.BorderColor = System.Drawing.Color.Tan;
-            this.button_nv_sua.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_nv_sua.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_nv_sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_nv_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_nv_sua.ForeColor = System.Drawing.Color.Lime;
-            this.button_nv_sua.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_app_package_settings1;
-            this.button_nv_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv_sua.Location = new System.Drawing.Point(1160, 397);
-            this.button_nv_sua.Margin = new System.Windows.Forms.Padding(4);
-            this.button_nv_sua.Name = "button_nv_sua";
-            this.button_nv_sua.Size = new System.Drawing.Size(167, 64);
-            this.button_nv_sua.TabIndex = 82;
-            this.button_nv_sua.Text = "SỬA";
-            this.button_nv_sua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button_nv_sua.UseVisualStyleBackColor = false;
+            this.button_nv_xoa.Click += new System.EventHandler(this.button_nv_xoa_Click);
             // 
             // button_nv_luu
             // 
@@ -741,7 +612,7 @@
             this.button_nv_luu.ForeColor = System.Drawing.Color.Lime;
             this.button_nv_luu.Image = global::GUI.Properties.Resources.Save_as_icon1;
             this.button_nv_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv_luu.Location = new System.Drawing.Point(978, 397);
+            this.button_nv_luu.Location = new System.Drawing.Point(1162, 397);
             this.button_nv_luu.Margin = new System.Windows.Forms.Padding(4);
             this.button_nv_luu.Name = "button_nv_luu";
             this.button_nv_luu.Size = new System.Drawing.Size(167, 64);
@@ -749,6 +620,7 @@
             this.button_nv_luu.Text = "LƯU";
             this.button_nv_luu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_nv_luu.UseVisualStyleBackColor = false;
+            this.button_nv_luu.Click += new System.EventHandler(this.button_nv_luu_Click);
             // 
             // button_nv_them
             // 
@@ -761,7 +633,7 @@
             this.button_nv_them.ForeColor = System.Drawing.Color.Lime;
             this.button_nv_them.Image = global::GUI.Properties.Resources._48px_Crystal_Clear_action_db_add1;
             this.button_nv_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_nv_them.Location = new System.Drawing.Point(795, 397);
+            this.button_nv_them.Location = new System.Drawing.Point(979, 397);
             this.button_nv_them.Margin = new System.Windows.Forms.Padding(4);
             this.button_nv_them.Name = "button_nv_them";
             this.button_nv_them.Size = new System.Drawing.Size(167, 64);
@@ -769,29 +641,71 @@
             this.button_nv_them.Text = "THÊM";
             this.button_nv_them.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_nv_them.UseVisualStyleBackColor = false;
+            this.button_nv_them.Click += new System.EventHandler(this.button_nv_them_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Brown;
+            this.label5.Location = new System.Drawing.Point(1213, 320);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 31);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Link";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // textBox_nv_link
+            // 
+            this.textBox_nv_link.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_nv_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nv_link.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_nv_link.Location = new System.Drawing.Point(1354, 312);
+            this.textBox_nv_link.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nv_link.Multiline = true;
+            this.textBox_nv_link.Name = "textBox_nv_link";
+            this.textBox_nv_link.Size = new System.Drawing.Size(244, 56);
+            this.textBox_nv_link.TabIndex = 111;
+            // 
+            // textBox_nv_timkiem
+            // 
+            this.textBox_nv_timkiem.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_nv_timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nv_timkiem.ForeColor = System.Drawing.Color.Blue;
+            this.textBox_nv_timkiem.Location = new System.Drawing.Point(298, 405);
+            this.textBox_nv_timkiem.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nv_timkiem.Multiline = true;
+            this.textBox_nv_timkiem.Name = "textBox_nv_timkiem";
+            this.textBox_nv_timkiem.Size = new System.Drawing.Size(289, 56);
+            this.textBox_nv_timkiem.TabIndex = 112;
+            this.textBox_nv_timkiem.TextChanged += new System.EventHandler(this.textBox_nv_timkiem_TextChanged);
             // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1033);
+            this.Controls.Add(this.textBox_nv_timkiem);
+            this.Controls.Add(this.textBox_nv_link);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_nv_quequan);
             this.Controls.Add(this.pictureBox_bh);
-            this.Controls.Add(this.comboBox_timkiem);
             this.Controls.Add(this.button_nv_timkiem);
             this.Controls.Add(this.dateTimePicker_ns);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button_nv_tc);
+            this.Controls.Add(this.button_nv_lammoi);
             this.Controls.Add(this.label_nv_gt);
             this.Controls.Add(this.label_nv_dc);
             this.Controls.Add(this.textBox_nv_dc);
             this.Controls.Add(this.textBox_nv_sdt);
-            this.Controls.Add(this.textBox_nv_macv);
+            this.Controls.Add(this.textBox_nv_email);
             this.Controls.Add(this.label_nv_macv);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_nv_sdt);
@@ -802,13 +716,14 @@
             this.Controls.Add(this.textBox_nv_manv);
             this.Controls.Add(this.button_nv_huybo);
             this.Controls.Add(this.button_nv_xoa);
-            this.Controls.Add(this.button_nv_sua);
             this.Controls.Add(this.button_nv_luu);
             this.Controls.Add(this.button_nv_them);
             this.Controls.Add(this.dataGridView_nv);
             this.Name = "NhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NhanVien";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_nv)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -821,17 +736,16 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox_bh;
-        private System.Windows.Forms.ComboBox comboBox_timkiem;
         private System.Windows.Forms.Button button_nv_timkiem;
         private System.Windows.Forms.DateTimePicker dateTimePicker_ns;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button_nv_tc;
+        private System.Windows.Forms.Button button_nv_lammoi;
         private System.Windows.Forms.Label label_nv_gt;
         private System.Windows.Forms.Label label_nv_dc;
         private System.Windows.Forms.TextBox textBox_nv_dc;
         private System.Windows.Forms.TextBox textBox_nv_sdt;
-        private System.Windows.Forms.TextBox textBox_nv_macv;
+        private System.Windows.Forms.TextBox textBox_nv_email;
         private System.Windows.Forms.Label label_nv_macv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_nv_sdt;
@@ -842,12 +756,11 @@
         private System.Windows.Forms.TextBox textBox_nv_manv;
         private System.Windows.Forms.Button button_nv_huybo;
         private System.Windows.Forms.Button button_nv_xoa;
-        private System.Windows.Forms.Button button_nv_sua;
         private System.Windows.Forms.Button button_nv_luu;
         private System.Windows.Forms.Button button_nv_them;
         private System.Windows.Forms.DataGridView dataGridView_nv;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_nv_quequan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
@@ -867,14 +780,8 @@
         private System.Windows.Forms.ToolStripMenuItem hoạtĐộngBánHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QueQuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnh;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_nv_link;
+        private System.Windows.Forms.TextBox textBox_nv_timkiem;
     }
 }
