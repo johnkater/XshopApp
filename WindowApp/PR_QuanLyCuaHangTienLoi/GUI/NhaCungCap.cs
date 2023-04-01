@@ -206,5 +206,40 @@ namespace GUI
             fm.Show();
 
         }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new KhachHang();
+            fm.Show();
+        }
+
+        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new TheKhachhang();
+            fm.Show();
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new NhanVien();
+            fm.Show();
+        }
+
+        private void hàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new SanPham();
+            fm.Show();
+        }
+
+        private void khuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new KhuyenMai();
+            fm.Show();
+        }
     }
 }

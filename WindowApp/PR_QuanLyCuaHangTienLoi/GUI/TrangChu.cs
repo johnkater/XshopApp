@@ -66,5 +66,19 @@ namespace GUI
             Form fm = new SanPham();
             fm.Show();
         }
+
+        private void thẻKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new TheKhachhang();
+            fm.Show();
+        }
+
+        private void khuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new KhuyenMai();
+            fm.Show();
+        }
     }
 }

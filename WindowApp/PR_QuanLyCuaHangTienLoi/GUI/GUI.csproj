@@ -58,6 +58,12 @@
     <Compile Include="KhachHang.Designer.cs">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhuyenMai.Designer.cs">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="SanPham.Designer.cs">
       <DependentUpon>SanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="TheKhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheKhachhang.Designer.cs">
+      <DependentUpon>TheKhachhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHang.resx">
       <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhuyenMai.resx">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhaCungCap.resx">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
@@ -108,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="SanPham.resx">
       <DependentUpon>SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheKhachhang.resx">
+      <DependentUpon>TheKhachhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>

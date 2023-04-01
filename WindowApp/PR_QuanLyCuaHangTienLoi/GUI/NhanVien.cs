@@ -253,5 +253,47 @@ namespace GUI
             // Search NhanVien
             dataGridView_nv.DataSource = NhanVienBLL.searchNhanVien(nhanvien);
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new DangNhap();
+            fm.Show();
+        }
+
+        private void hàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new SanPham();
+            fm.Show();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new KhachHang();
+            fm.Show();
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new TheKhachhang();
+            fm.Show();
+        }
+
+        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new NhaCungCap();
+            fm.Show();
+        }
+
+        private void khuyễnMãiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new KhuyenMai();
+            fm.Show();
+        }
     }
 }
