@@ -80,5 +80,40 @@ namespace GUI
             Form fm = new KhuyenMai();
             fm.Show();
         }
+
+        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new BanHang();
+            fm.Show();
+        }
+
+        private void nhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new NhapHang();
+            fm.Show();
+        }
+
+        private void hủyHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new HuyHang();
+            fm.Show();
+        }
+
+        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new ThongKe();
+            fm.Show();
+        }
+
+        private void hoạtĐộngBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new TonKho();
+            fm.Show();
+        }
     }
 }

@@ -251,7 +251,7 @@ namespace GUI
             textBox_lsp_tenloai.Text = dataGridView_sp[3, option_click].Value.ToString();
             textBox_sp_tensp.Text = dataGridView_sp[4, option_click].Value.ToString();
             textBox_sp_giaban.Text = dataGridView_sp[5, option_click].Value.ToString();
-            textBox_sp_donvitinh.Text = dataGridView_sp[6, option_click].Value.ToString();
+            textBox_sp_donvitinh.Text = dataGridView_sp[6, option_click].Value.ToString();     
             dateTimePicker_nsx.Text = dataGridView_sp[7, option_click].Value.ToString();
             dateTimePicker_hsd.Text = dataGridView_sp[8, option_click].Value.ToString();
             textBox_sp_hinh.Text = dataGridView_sp[9, option_click].Value.ToString();
@@ -301,6 +301,7 @@ namespace GUI
             sanpham.TenSanPham = textBox_sp_timkiem.Text;
             // Refresh datagridview SanPham
             dataGridView_sp.DataSource = SanPhamBLL.searchSanPham(sanpham);
+            
         }
 
         private void button_sp_them_Click(object sender, EventArgs e)

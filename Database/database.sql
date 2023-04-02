@@ -505,6 +505,26 @@ end
 --exec deleteLoaiTheKhachHang 4
 --select * from LOAITHEKHACHHANG
 go
+-- 5.4. Truy van
+CREATE proc showLoaiTheKhachHang
+as
+begin
+	select MaLoaiTheKhachHang, TenLoaiTheKhachHAng from View_LoaiTheKhachHang
+	
+end
+--exec showLoaiTheKhachHang
+go
+
+-- 5.5. Tim kiem
+CREATE proc searchTHEKHACHHANG(@HoTen nvarchar(30))
+as
+begin
+	select * from View_TheKhachHang where HoTen LIKE '%' + @HoTen + '%'
+end
+--exec searchTHEKHACHHANG N'a'
+go
+
+
 -- 6. THEKHACHHANG
 -- 6.1. Them
 CREATE proc addTheKhachHang
@@ -536,6 +556,15 @@ begin
 end
 --exec deleteTheKhachHang 'TKH2365898'
 --select * from THEKHACHHANG
+go
+-- 6.4. Truy van
+CREATE proc showTheKhachHang
+as
+begin
+	select * from View_TheKhachHang
+	
+end
+--exec showTheKhachHang
 go
 
 -- 7. LOAIKHUYENMAI
@@ -574,6 +603,14 @@ end
 --exec deleteLoaiKhuyenMai 3
 --select * from LOAIKHUYENMAI
 go
+-- 7.4. Truy van
+CREATE proc showLoaiKhuyenMai
+as
+begin
+	select * from View_LoaiKhuyenMai
+end
+go
+
 -- 8. KHUYENMAI
 -- 8.1. Them
 CREATE proc addKhuyenMai
@@ -607,6 +644,25 @@ end
 --exec deleteKhuyenMai 'KM000000'
 --select * from KHUYENMAI
 go
+
+-- 8.4. Truy van
+CREATE proc showKhuyenMai
+as
+begin
+	select * from View_KhuyenMai
+end
+go
+
+-- 8.5. Tim kiem
+CREATE proc searchKHUYENMAI(@MaKhuyenMai varchar(20))
+as
+begin
+	select * from View_KhuyenMai where MaKhuyenMai LIKE '%' + @MaKhuyenMai + '%'
+end
+--exec searchKHUYENMAI N'20230312'
+go
+
+
 -- 9. LOAISANPHAM
 -- 9.1. Them
 CREATE proc addLoaiSanPham
@@ -648,6 +704,15 @@ end
 --exec deleteLoaiSanPham 10
 --select * from LOAISANPHAM
 go
+-- 9.4. Truy van
+CREATE proc showLoaiSanPham
+as
+begin
+	select * from View_LoaiSanPham
+end
+go
+
+
 -- 10. SANPHAM
 -- 10.1. Them
 CREATE proc addSanPham
@@ -683,6 +748,26 @@ end
 --exec deleteSanPham 'SP1235468811523'
 --select * from SANPHAM
 go
+-- 10.4. Truy van
+CREATE proc showSanPham
+as
+begin
+	select MaSanPham, MaVach, MaLoaiSanPham, TenLoaiSanPham, TenSanPham, DonGiaBan, DonViTinh, NgaySanXuat, HanSuDung, HinhAnh, MaKhuyenMai, TenLoaiKhuyenMai, GiaGiam, NgayBatDau, NgayKetThuc  
+	from View_SanPham
+end
+go
+-- 10.5. Tim kiem
+CREATE proc searchSANPHAM(@TenSanPham nvarchar(30))
+as
+begin
+	
+	select MaSanPham, MaVach, MaLoaiSanPham, TenLoaiSanPham, TenSanPham, DonGiaBan, DonViTinh, NgaySanXuat, HanSuDung, HinhAnh, MaKhuyenMai, TenLoaiKhuyenMai, GiaGiam, NgayBatDau, NgayKetThuc  
+	from View_SanPham where TenSanPham LIKE '%' + @TenSanPham + '%'
+
+end
+--exec searchSANPHAM N'mì'
+go
+
 -- 11. PHIEUNHAP
 -- 11.1. Them
 CREATE proc addPhieuNhap
@@ -705,7 +790,7 @@ begin
 end
 --exec updatePhieuNhap 'PN123456789212235', 'NV23215684', 'NCC0215235', '2023-03-21 10:34:09'
 go
--- 11.2. Xoa
+-- 11.3. Xoa
 CREATE proc deletePhieuNhap
 (@MaPhieuNhap varchar(20))
 as
@@ -716,6 +801,10 @@ end
 --exec deletePhieuNhap 'PN123456789212235'
 --select * from PHIEUNHAP
 go
+
+
+
+
 -- 12. PHIEUNHAPCHITIET
 -- 12.1. Them
 CREATE proc addPhieuNhapChiTiet
@@ -782,6 +871,8 @@ end
 --exec deletePhieuXuat 'PX1234564789782'
 --select * from PHIEUXUAT
 go
+
+
 -- 14. PHIEUXUATCHITIET
 -- 14.1. Them
 CREATE proc addPhieuXuatChiTiet
@@ -939,11 +1030,48 @@ create view View_SanPham as
 	inner join KHUYENMAI as KM on SP.MaKhuyenMai=KM.MaKhuyenMai
 	inner join LOAIKHUYENMAI as LKM on KM.MaLoaiKhuyenMai=LKM.MaLoaiKhuyenMai ;
 go
+-- 5. View_TheKhachHang
+create view View_TheKhachHang as
+	select KH.MaKhachHang, KH.HoTen, TKH.MaTheKhachHang, TKH.NgayLap, TKH.TichDiem, TKH.MaLoaiTheKhachHang, L.TenLoaiTheKhachHang 
+	from KHACHHANG as KH
+	inner join THEKHACHHANG as TKH on KH.MaKhachHang = TKH.MaKhachhang
+	inner join LOAITHEKHACHHANG as L on TKH.MaLoaiTheKhachHang = L.MaLoaiTheKhachHang
+go
+-- 6. View_LoaiTheKhachHang
+create view View_LoaiTheKhachHang as
+	select *
+	from LOAITHEKHACHHANG
+	
+go
+-- 7. View_LoaiKhuyenMai
+create view View_LoaiKhuyenMai as
+	select *
+	from LOAIKHUYENMAI	
+go
+-- 8. View_KhuyenMai
+create view View_KhuyenMai as
+	select *
+	from KHUYENMAI	
+go
+-- 9. View_LoaiSanPham
+create view View_LoaiSanPham as
+	select *
+	from LOAISANPHAM
+go
 
--- 5. View_BanHang		(table : PHIEUXUAT, PHIEUXUATCHITIET, SANPHAM, NHANVIEN, KHACHHANG, THEKHACHHANG,LOAITHEKHACHHANG, KHUYENMAI, LOAIKHUYENMAI )
--- 6. View_NhapHang	
--- 7. View_HuyHang
--- 8. View_ThongKeBaoCao
+-- 10. View_BanHang
+create view View_BanHang as
+	select PX.MaPhieuXuat,PXCT.MaPhieuXuatChiTiet, PX.NgayXuat, PX.MaNhanVien, NV.HoTen, PX.MaKhachHang, KH.HoTen,TKH.MaTheKhachHang,TKH.MaLoaiTheKhachHang,LTKH.TenLoaiTheKhachHang,TKH.TichDiem, PXCT.MaSanPham, SP.TenSanPham,SP.MaLoaiSanPham, LSP.TenLoaiSanPham, PXCT.SoLuong, SP.DonGiaBan, SP.DonViTinh, (SP.DonGiaBan*PXCT.SoLuong) as ThanhTien
+	from PHIEUXUAT as PX
+	inner join KHACHHANG as KH on PX.MaKhachHang = KH.MaKhachHang
+	inner join THEKHACHHANG as TKH on TKH.MaKhachhang = KH.MaKhachHang
+	inner join LOAITHEKHACHHANG as LTKH on LTKH.MaLoaiTheKhachHang = TKH.MaLoaiTheKhachHang
+	inner join NHANVIEN as NV on PX.MaNhanVien = NV.MaNhanVien
+	inner join PHIEUXUATCHITIET as PXCT on PX.MaPhieuXuat = PXCT.MaPhieuXuat
+	inner join SANPHAM as SP on PXCT.MaSanPham = SP.MaSanPham
+	inner join LOAISANPHAM as LSP on SP.MaLoaiSanPham = LSP.MaLoaiSanPham
+go
+
 
 
 -- TAO DU LIEU -----------------------------------------------------------------------------------------------------------

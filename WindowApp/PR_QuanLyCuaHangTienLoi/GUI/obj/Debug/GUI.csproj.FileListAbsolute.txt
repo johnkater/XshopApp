@@ -23,3 +23,8 @@ C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.KhachHang.
 C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.SanPham.resources
 C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.TheKhachhang.resources
 C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.KhuyenMai.resources
+C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.BanHang.resources
+C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.HuyHang.resources
+C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.NhapHang.resources
+C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.ThongKe.resources
+C:\Users\Admin\source\repos\PR_QuanLyCuaHangTienLoi\GUI\obj\Debug\GUI.TonKho.resources
