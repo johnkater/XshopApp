@@ -65,14 +65,16 @@ CREATE TABLE PHIEUXUAT (
     MaPhieuXuat varchar(20) NOT NULL,  
     MaNhanVien varchar(10) NOT NULL, 
     MaKhachHang varchar(10) NOT NULL, 
-    NgayXuat datetime NULL, 
+    NgayXuat datetime NULL,
+	TrangThai nvarchar(30) NULL, 
+	GhiChu nvarchar(30) NULL,
     PRIMARY KEY (MaPhieuXuat)  
 );
-go  
+go 
+
 -- 7. PHIEUXUATCHITIET ----------------------------
 CREATE TABLE PHIEUXUATCHITIET (  
-    MaPhieuXuatChiTiet varchar(20) NOT NULL,  
-    MaPhieuXuat varchar(20) NOT NULL, 
+    MaPhieuXuatChiTiet varchar(20) NOT NULL, 
     MaSanPham varchar(20) NOT NULL, 
     SoLuong int NULL, 
     PRIMARY KEY (MaPhieuXuatChiTiet,MaSanPham)  
@@ -82,14 +84,15 @@ go
 CREATE TABLE PHIEUHUY (  
     MaPhieuHuy varchar(20) NOT NULL,  
     MaNhanVien varchar(10) NOT NULL, 
-    NgayHuy datetime NULL, 
+    NgayHuy datetime NULL,
+	TrangThai nvarchar(20) NULL,
+	GhiChu nvarchar(30) NULL,
     PRIMARY KEY (MaPhieuHuy)  
 ); 
 go
 -- 9. PHIEUHUYCHITIET ----------------------------
 CREATE TABLE PHIEUHUYCHITIET (  
-    MaPhieuHuyChiTiet varchar(20) NOT NULL,  
-    MaPhieuHuy varchar(20) NOT NULL, 
+    MaPhieuHuyChiTiet varchar(20) NOT NULL,   
     MaSanPham varchar(20) NOT NULL,
     SoLuong int NULL, 
     PRIMARY KEY (MaPhieuHuyChiTiet,MaSanPham)  
@@ -122,14 +125,15 @@ CREATE TABLE PHIEUNHAP (
     MaPhieuNhap varchar(20) NOT NULL,  
     MaNhanVien varchar(10) NOT NULL, 
     MaNhaCungCap varchar(10) NOT NULL,  
-    NgayNhap datetime NULL,
+    NgayNhap datetime NOT NULL,
+	TrangThai Nvarchar(20) NULL,
+	GhiChu Nvarchar(30) NULL,
     PRIMARY KEY (MaPhieuNhap)  
 );
 go
 -- 13. PHIEUNHAPCHITIET ----------------------------
 CREATE TABLE PHIEUNHAPCHITIET (  
     MaPhieuNhapChiTiet varchar(20) NOT NULL,  
-    MaPhieuNhap varchar(20) NOT NULL, 
     MaSanPham varchar(20) NOT NULL,  
     SoLuong int NULL,
     DonGiaNhap int NULL,
@@ -197,10 +201,10 @@ add constraint FK_PHIEUXUAT_KHACHHANG
 foreign key (MaKhachhang)
 references KHACHHANG(MaKhachhang);
 go
--- 5. PHIEUXUATCHITIET --> PHIEUXUAT (MaPhieuXuat)
+-- 5. PHIEUXUATCHITIET --> PHIEUXUAT (MaPhieuXuatChiTiet)
 alter table PHIEUXUATCHITIET
 add constraint FK_PHIEUXUATCHITIET_PHIEUXUAT
-foreign key (MaPhieuXuat)
+foreign key (MaPhieuXuatChiTiet)
 references PHIEUXUAT(MaPhieuXuat);
 go
 -- 6. PHIEUXUATCHITIET --> SANPHAM (MaSanPham)
@@ -218,7 +222,7 @@ go
 -- 8. PHIEUHUYCHITIET --> PHIEUHUY (MaPhieuHuy)
 alter table PHIEUHUYCHITIET
 add constraint FK_PHIEUHUYCHITIET_PHIEUHUY
-foreign key (MaPhieuHuy)
+foreign key (MaPhieuHuyChiTiet)
 references PHIEUHUY(MaPhieuHuy);
 go
 -- 9. PHIEUHUYCHITIET --> SANPHAM (MaSanPham)
@@ -254,7 +258,7 @@ go
 -- 14. PHIEUNHAPCHITIET --> PHIEUNHAP (MaPhieuNhap)
 alter table PHIEUNHAPCHITIET
 add constraint FK_PHIEUNHAPCHITIET_PHIEUNHAP
-foreign key (MaPhieuNhap)
+foreign key (MaPhieuNhapChiTiet)
 references PHIEUNHAP(MaPhieuNhap);
 go
 -- 15. PHIEUNHAPCHITIET --> SANPHAM (MaSanPham)
@@ -768,28 +772,57 @@ end
 --exec searchSANPHAM N'mì'
 go
 
+-- 10.6. Tim kiem nhieu tham so
+CREATE proc searchSANPHAMBANHANG(@TenSanPham nvarchar(30), @MaVach varchar(13), @MaSanPham varchar(20))
+as
+begin
+	
+	select MaSanPham, MaVach, MaLoaiSanPham, TenLoaiSanPham, TenSanPham, DonGiaBan, DonViTinh, NgaySanXuat, HanSuDung, HinhAnh, MaKhuyenMai, TenLoaiKhuyenMai, GiaGiam, NgayBatDau, NgayKetThuc  
+	from View_SanPham where TenSanPham LIKE '%' + @TenSanPham + '%' or MaVach LIKE '%' + @MaVach + '%' or MaSanPham LIKE '%' + @MaSanPham + '%'
+
+end
+exec searchSANPHAMBANHANG N'','1235485698550',''
+go
+
 -- 11. PHIEUNHAP
 -- 11.1. Them
 CREATE proc addPhieuNhap
-(@MaPhieuNhap varchar(20), @MaNhanVien varchar(10), @MaNhaCungCap varchar(10), @NgayNhap datetime)
+(@MaPhieuNhap varchar(20), @MaNhanVien varchar(10), @MaNhaCungCap varchar(10), @NgayNhap datetime, @TrangThai nvarchar(20), @GhiChu nvarchar(30))
 as
 begin
-	insert into PHIEUNHAP (MaPhieuNhap,MaNhanVien,MaNhaCungCap,NgayNhap) values (@MaPhieuNhap, @MaNhanVien, @MaNhaCungCap, @NgayNhap)
+	insert into PHIEUNHAP (MaPhieuNhap,MaNhanVien,MaNhaCungCap,NgayNhap, TrangThai, GhiChu) values (@MaPhieuNhap, @MaNhanVien, @MaNhaCungCap, @NgayNhap, @TrangThai, @GhiChu)
 end
---exec addPhieuNhap 'PN123456789212235', 'NV23215684', 'NCC0215235', '2023-03-20 10:34:09'
+--exec addPhieuNhap 'PN123456789212235', 'NV23215684', 'NCC0215235', '2023-03-20 10:34:09', N'Chưa thanh toán', N'Ghi chú' 
+--exec addPhieuNhap 'PN123456789212251', 'NV23215684', 'NCC0215235', '2023-03-20 10:34:09', N'Chưa thanh toán', N'Ghi chú' 
 go
 -- 11.2. Sua
 CREATE proc updatePhieuNhap
-(@MaPhieuNhap varchar(20), @MaNhanVien varchar(10), @MaNhaCungCap varchar(10), @NgayNhap datetime)
+(@MaPhieuNhap varchar(20), @MaNhanVien varchar(10), @MaNhaCungCap varchar(10), @NgayNhap datetime, @GhiChu nvarchar(30))
 as
 begin
 	update PHIEUNHAP
-	set MaNhanVien=@MaNhanVien, MaNhaCungCap=@MaNhaCungCap, NgayNhap=@NgayNhap
+	set MaNhanVien=@MaNhanVien, MaNhaCungCap=@MaNhaCungCap, NgayNhap=@NgayNhap, GhiChu = @GhiChu
 	where MaPhieuNhap=@MaPhieuNhap
 	
 end
---exec updatePhieuNhap 'PN123456789212235', 'NV23215684', 'NCC0215235', '2023-03-21 10:34:09'
+--exec updatePhieuNhap 'PN123113151', 'NV23215684', 'NCC0215235', '2023-03-21 10:34:09', N'Đã sửa'
+--select * from PHIEUNHAP
 go
+
+-- 11.2.2. Sua --> Update TrangThai PhieuNhap
+CREATE proc updateTrangThaiPhieuNhap
+(@MaPhieuNhap varchar(20), @TrangThai varchar(30))
+as
+begin
+	update PHIEUNHAP
+	set TrangThai = @TrangThai
+	where MaPhieuNhap=@MaPhieuNhap
+	
+end
+--exec updateTrangThaiPhieuNhap 'PN123456789212235',  N'Đã thanh toán'
+--select * from PHIEUNHAP
+go
+
 -- 11.3. Xoa
 CREATE proc deletePhieuNhap
 (@MaPhieuNhap varchar(20))
@@ -802,29 +835,26 @@ end
 --select * from PHIEUNHAP
 go
 
-
-
-
 -- 12. PHIEUNHAPCHITIET
 -- 12.1. Them
 CREATE proc addPhieuNhapChiTiet
-(@MaPhieuNhapChiTiet varchar(20), @MaPhieuNhap varchar(20), @MaSanPham varchar(20), @SoLuong int, @DonGiaNhap int)
+(@MaPhieuNhapChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int, @DonGiaNhap int)
 as
 begin
-	insert into PHIEUNHAPCHITIET(MaPhieuNhapChiTiet, MaPhieuNhap, MaSanPham, SoLuong, DonGiaNhap) values (@MaPhieuNhapChiTiet, @MaPhieuNhap, @MaSanPham, @SoLuong, @DonGiaNhap)
+	insert into PHIEUNHAPCHITIET(MaPhieuNhapChiTiet, MaSanPham, SoLuong, DonGiaNhap) values (@MaPhieuNhapChiTiet, @MaSanPham, @SoLuong, @DonGiaNhap)
 end
---exec addPhieuNhapChiTiet 'PNCT12312354545', 'PN123456789212235', 'SP1235468811524', 10, 280000 
+--exec addPhieuNhapChiTiet 'PN123456789212235','SP1235468811524',10, 280000 
 go
 -- 12.2. Sua
 CREATE proc updatePhieuNhapChiTiet
-(@MaPhieuNhapChiTiet varchar(20), @MaPhieuNhap varchar(20), @MaSanPham varchar(20), @SoLuong int, @DonGiaNhap int)
+(@MaPhieuNhapChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int, @DonGiaNhap int)
 as
 begin
 	update PHIEUNHAPCHITIET
-	set MaPhieuNhap=@MaPhieuNhap, MaSanPham=@MaSanPham, SoLuong=@SoLuong, DonGiaNhap=@DonGiaNhap
-	where MaPhieuNhapChiTiet=@MaPhieuNhapChiTiet
+	set SoLuong=@SoLuong, DonGiaNhap=@DonGiaNhap
+	where MaPhieuNhapChiTiet=@MaPhieuNhapChiTiet and MaSanPham=@MaSanPham
 end
---exec updatePhieuNhapChiTiet 'PNCT12312354545', 'PN123456789212235', 'SP1235468811524', 20, 280000
+--exec updatePhieuNhapChiTiet 'PN123456789212235', 'SP1235468811524', 20, 280000
 go
 -- 12.3. Xoa
 CREATE proc deletePhieuNhapChiTiet
@@ -834,32 +864,89 @@ begin
 	delete PHIEUNHAPCHITIET
 	where MaPhieuNhapChiTiet=@MaPhieuNhapChiTiet
 end
---exec deletePhieuNhapChiTiet 'PNCT12312354545'
+--exec deletePhieuNhapChiTiet 'PN123456789212235'
 --select * from PHIEUNHAPCHITIET
 go
+
+-- 12.4. Xoa tung san pham trong PhieuNhap
+CREATE proc deleteByOnePhieuNhapChiTiet
+(@MaPhieuNhapChiTiet varchar(20), @MaSanPham varchar(20))
+as
+begin
+	delete PHIEUNHAPCHITIET
+	where MaPhieuNhapChiTiet=@MaPhieuNhapChiTiet and MaSanPham = @MaSanPham
+end
+--exec deleteByOnePhieuNhapChiTiet 'MaPhieuNhapChiTiet', 'MaSanPham'
+--select * from PHIEUNHAPCHITIET
+go
+
+-- 12.5. Truy van
+CREATE proc queryNhapHang
+as
+begin
+	select * from View_NhapHang 
+end
+
+-- 12.6. Tim kiem phieu nhap hang mot tham so
+CREATE proc searchPhieuNhap(@MaPhieuNhap varchar(20))
+as
+begin
+	select *
+	from View_NhapHang where MaPhieuNhap LIKE '%' + @MaPhieuNhap + '%' 
+end
+exec searchPhieuNhap ''
+go
+
+-- 12.7. Tim kiem phieu nhap hang nhieu tham so
+CREATE proc searchPhieuNhapNhieuThamSo(@MaPhieuNhap varchar(20), @MaNhanVien varchar(20), @MaNhaCungCap varchar(20))
+as
+begin
+	select *
+	from View_NhapHang where MaPhieuNhap LIKE '%' + @MaPhieuNhap + '%' or MaNhanVien LIKE '%' + @MaNhanVien + '%' or MaNhaCungCap LIKE '%' + @MaNhaCungCap + '%'
+end
+exec searchPhieuNhapNhieuThamSo 'PN12345678921223','PN12345678921223','PN12345678921223'
+go
+
 -- 13. PHIEUXUAT
 -- 13.1. Them
 CREATE proc addPhieuXuat
-(@MaPhieuXuat varchar(20), @MaNhanVien varchar(10), @MaKhachHang varchar(10), @NgayXuat datetime)
+(@MaPhieuXuat varchar(20), @MaNhanVien varchar(10), @MaKhachHang varchar(10), @NgayXuat datetime, @TrangThai nvarchar(30), @GhiChu nvarchar(30))
 as
 begin
-	insert into PHIEUXUAT (MaPhieuXuat, MaNhanVien, MaKhachHang, NgayXuat) values (@MaPhieuXuat, @MaNhanVien, @MaKhachHang, @NgayXuat)
-end
---exec addPhieuXuat 'PX1234564789781', 'NV12322255', 'KH12563258', '2023-03-25 10:34:09'
---exec addPhieuXuat 'PX1234564789782', 'NV12322255', 'KH00000000', '2023-03-25 10:37:09'
+	insert into PHIEUXUAT (MaPhieuXuat, MaNhanVien, MaKhachHang, NgayXuat, TrangThai, GhiChu ) values (@MaPhieuXuat, @MaNhanVien, @MaKhachHang, @NgayXuat, @TrangThai, @GhiChu)
+end 
+--exec addPhieuXuat 'PX1234564789782', 'NV12322255', 'KH00000000', '2023-03-25 10:37:09', N'Chưa thanh toán', N'Chưa có sản phẩm mua'
+--exec addPhieuXuat 'PX1234564789714', 'NV12322255', 'KH00000000', '2023-03-25 10:37:09', N'Chưa thanh toán', N'Chưa có sản phẩm mua'
+--exec addPhieuXuat 'PX1234564789241', 'NV12322255', 'KH00000000', '2023-03-25 10:37:09', N'Chưa thanh toán', N'Chưa có sản phẩm mua'
 --select * from PHIEUXUAT
 go
 -- 13.2. Sua
 CREATE proc updatePhieuXuat
-(@MaPhieuXuat varchar(20), @MaNhanVien varchar(10), @MaKhachHang varchar(10), @NgayXuat datetime)
+(@MaPhieuXuat varchar(20), @MaNhanVien varchar(10), @MaKhachHang varchar(10), @NgayXuat datetime, @GhiChu nvarchar(30))
 as
 begin
 	update PHIEUXUAT
-	set MaNhanVien=@MaNhanVien, MaKhachHang=@MaKhachHang, NgayXuat=@NgayXuat
+	set MaNhanVien=@MaNhanVien, MaKhachHang=@MaKhachHang, NgayXuat=@NgayXuat, GhiChu = @GhiChu
 	where MaPhieuXuat=@MaPhieuXuat 
 end
---exec updatePhieuXuat 'PX1234564789782', 'NV12322255', 'KH00000000', '2023-03-25 11:37:09'
+--exec updatePhieuXuat 'PX1234564789782', 'NV12322255', 'KH00000000', '2023-03-25 11:37:09', N'Chưa thanh toán'
 go
+--select * from PHIEUXUAT
+
+-- 13.2.2. Thanh toan PhieuXuat
+CREATE proc updateThanhToanPhieuXuat
+(@MaPhieuXuat varchar(20),  @TrangThai nvarchar(30))
+as
+begin
+	update PHIEUXUAT
+	set TrangThai=@TrangThai
+	where MaPhieuXuat=@MaPhieuXuat 
+end
+--exec updateThanhToanPhieuXuat 'PX1234564789714', N'Đã thanh toán'
+--select * from PHIEUXUAT
+
+go
+
 -- 13.3. Xoa
 CREATE proc deletePhieuXuat
 (@MaPhieuXuat varchar(20))
@@ -876,26 +963,29 @@ go
 -- 14. PHIEUXUATCHITIET
 -- 14.1. Them
 CREATE proc addPhieuXuatChiTiet
-(@MaPhieuXuatChiTiet varchar(20), @MaPhieuXuat varchar(20), @MaSanPham varchar(20), @SoLuong int)
+(@MaPhieuXuatChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int)
 as
 begin
-	insert into PHIEUXUATCHITIET (MaPhieuXuatChiTiet, MaPhieuXuat, MaSanPham, SoLuong) values (@MaPhieuXuatChiTiet, @MaPhieuXuat, @MaSanPham, @SoLuong)
+	insert into PHIEUXUATCHITIET (MaPhieuXuatChiTiet, MaSanPham, SoLuong) values (@MaPhieuXuatChiTiet, @MaSanPham, @SoLuong)
 end
---exec addPhieuXuatChiTiet 'PXCT123135464848','PX1234564789781','SP1235468811524',1
---exec addPhieuXuatChiTiet 'PXCT123135464849','PX1234564789782','SP1235468811524',1
+
+--exec addPhieuXuatChiTiet 'PX1234564789782','SP1235468811521',2
+--exec addPhieuXuatChiTiet 'PX1234564789782','SP1235468811523',1
+--select * from PHIEUXUATCHITIET
+--select * from SANPHAM
 go
 -- 14.2. Sua
 CREATE proc updatePhieuXuatChiTiet
-(@MaPhieuXuatChiTiet varchar(20), @MaPhieuXuat varchar(20), @MaSanPham varchar(20), @SoLuong int)
+(@MaPhieuXuatChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int)
 as
 begin
 	update PHIEUXUATCHITIET
-	set  MaPhieuXuat=@MaPhieuXuat, MaSanPham=@MaSanPham, SoLuong=@SoLuong
-	where MaPhieuXuatChiTiet=@MaPhieuXuatChiTiet
+	set SoLuong=@SoLuong
+	where MaPhieuXuatChiTiet=@MaPhieuXuatChiTiet and MaSanPham = @MaSanPham
 end
---exec updatePhieuXuatChiTiet 'PXCT123135464849','PX1234564789782','SP1235468811524',2
+--exec updatePhieuXuatChiTiet 'PX1234564789241','SP1235468811523',3
 go
--- 14.3. Xoa
+-- 14.3. Xoa tat ca san pham trong PhieuXuatChiTiet
 CREATE proc deletePhieuXuatChiTiet
 (@MaPhieuXuatChiTiet varchar(20))
 as
@@ -903,30 +993,87 @@ begin
 	delete PHIEUXUATCHITIET
 	where MaPhieuXuatChiTiet=@MaPhieuXuatChiTiet
 end
---exec deletePhieuXuatChiTiet 'PXCT123135464849'
+--exec deletePhieuXuatChiTiet 'PX1234564789782'
 --select * from PHIEUXUATCHITIET
 go
+
+-- 14.4. Xoa tung san pham trong PhieuXuatChiTiet
+CREATE proc deleteSanPhamInPhieuXuat
+(@MaPhieuXuatChiTiet varchar(20), @MaSanPham varchar(20))
+as
+begin
+	delete PHIEUXUATCHITIET
+	where MaPhieuXuatChiTiet=@MaPhieuXuatChiTiet and MaSanPham = @MaSanPham
+end
+--exec deleteSanPhamInPhieuXuat 'PX1234564789241','SP1235468811522'
+select * from PHIEUXUATCHITIET
+go
+
+-- 14.5. Truy van
+CREATE proc QueryBanHang
+as
+begin
+	select * from View_BanHang
+end
+go
+--exec QueryBanHang
+
+--14.5. Tim kiem hoa don Nhieu Tham so
+CREATE proc searchHOADONBANHANG(@MaPhieuXuat varchar(20), @MaNhanVien varchar(10), @MaKhachHang varchar(10))
+as
+begin
+	select *
+	from View_BanHang where MaPhieuXuat LIKE '%' + @MaPhieuXuat + '%' or MaNhanVien LIKE '%' + @MaNhanVien + '%' or MaKhachHang LIKE '%' + @MaKhachHang + '%'
+end
+--exec searchHOADONBANHANG 'PX1234564789782','0',''
+go
+
+-- 14.6. Tim kiem hoa don mot tham so
+CREATE proc searchPHIEUXUAT(@MaPhieuXuat varchar(20))
+as
+begin
+	select *
+	from View_BanHang where MaPhieuXuat LIKE '%' + @MaPhieuXuat + '%' 
+end
+exec searchPHIEUXUAT ''
+go
+
+
 -- 15. PHIEUHUY
 -- 15.1. Them
 CREATE proc addPhieuHuy
-(@MaPhieuHuy varchar(20), @MaNhanVien varchar(10), @NgayHuy datetime)
+(@MaPhieuHuy varchar(20), @MaNhanVien varchar(10), @NgayHuy datetime, @TrangThai nvarchar(20), @Ghichu nvarchar(30))
 as
 begin
-	insert into PHIEUHUY (MaPhieuHuy, MaNhanVien, NgayHuy) values (@MaPhieuHuy, @MaNhanVien, @NgayHuy)
+	insert into PHIEUHUY (MaPhieuHuy, MaNhanVien, NgayHuy, TrangThai, GhiChu) values (@MaPhieuHuy, @MaNhanVien, @NgayHuy, @TrangThai, @Ghichu)
 end
---exec addPhieuHuy 'PH123115546548', 'NV23215684', '2023-03-25 11:37:09'
+--exec addPhieuHuy 'PH1315161684181','NV1215464','2023-03-28 10:34:09.000',N'Chưa duyệt',N'Tạo mới'
 go
+--select * from PHIEUHUY
 -- 15.2. Sua
 CREATE proc updatePhieuHuy
-(@MaPhieuHuy varchar(20), @MaNhanVien varchar(10), @NgayHuy datetime)
+(@MaPhieuHuy varchar(20), @MaNhanVien varchar(10), @NgayHuy datetime, @GhiChu nvarchar(30))
 as
 begin
 	update PHIEUHUY
-	set MaNhanVien=@MaNhanVien, NgayHuy=@NgayHuy
+	set MaNhanVien=@MaNhanVien, NgayHuy=@NgayHuy,GhiChu=@GhiChu 
 	where MaPhieuHuy=@MaPhieuHuy
 end
---exec updatePhieuHuy 'PH123115546548', 'NV23215684', '2023-03-25 11:38:09'
+
 go
+
+--15.2.2. Sua --> Cap nhat trang thai PhieuHuy
+CREATE proc updateTrangThaiPhieuHuy
+(@MaPhieuHuy varchar(20), @TrangThai nvarchar(20))
+as
+begin
+	update PHIEUHUY
+	set TrangThai=@TrangThai
+	where MaPhieuHuy=@MaPhieuHuy
+end
+
+go
+
 -- 15.3. Xoa
 CREATE proc deletePhieuHuy
 (@MaPhieuHuy varchar(20))
@@ -935,29 +1082,28 @@ begin
 	delete PHIEUHUY
 	where MaPhieuHuy=@MaPhieuHuy
 end
---exec deletePhieuHuy 'PH123115546548'
---select * from PHIEUHUY
+
 go
 -- 16. PHIEUHUYCHITIET
 -- 16.1. Them
 CREATE proc addPhieuHuyChiTiet
-(@MaPhieuHuyChiTiet varchar(20), @MaPhieuHuy varchar(20), @MaSanPham varchar(20), @SoLuong int)
+(@MaPhieuHuyChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int)
 as
 begin
-	insert into PHIEUHUYCHITIET (MaPhieuHuyChiTiet, MaPhieuHuy, MaSanPham, SoLuong) values (@MaPhieuHuyChiTiet, @MaPhieuHuy, @MaSanPham, @SoLuong)
+	insert into PHIEUHUYCHITIET (MaPhieuHuyChiTiet, MaSanPham, SoLuong) values (@MaPhieuHuyChiTiet, @MaSanPham, @SoLuong)
 end
---exec addPhieuHuyChiTiet 'PHCT1556456444','PH123115546548','SP1235468811524', 1 
+
 go
 -- 16.2. Sua
 CREATE proc updatePhieuHuyChiTiet
-(@MaPhieuHuyChiTiet varchar(20), @MaPhieuHuy varchar(20), @MaSanPham varchar(20), @SoLuong int)
+(@MaPhieuHuyChiTiet varchar(20), @MaSanPham varchar(20), @SoLuong int)
 as
 begin
 	update PHIEUHUYCHITIET
-	set  MaPhieuHuy=@MaPhieuHuy, MaSanPham=@MaSanPham, SoLuong=@SoLuong
-	where MaPhieuHuyChiTiet=@MaPhieuHuyChiTiet
+	set SoLuong=@SoLuong
+	where MaPhieuHuyChiTiet=@MaPhieuHuyChiTiet and MaSanPham=@MaSanPham
 end
---exec updatePhieuHuyChiTiet 'PHCT1556456444','PH123115546548','SP1235468811524', 2 
+ 
 go
 -- 16.3. Xoa
 CREATE proc deletePhieuHuyChiTiet
@@ -967,9 +1113,49 @@ begin
 	delete PHIEUHUYCHITIET
 	where MaPhieuHuyChiTiet=@MaPhieuHuyChiTiet
 end
---exec deletePhieuHuyChiTiet 'PHCT1556456444'
---select * from PHIEUHUYCHITIET
+
 go
+
+--16.4. Xoa tung PhieuHuychiTiet
+CREATE proc deleteByOnePhieuHuyChiTiet
+(@MaPhieuHuyChiTiet varchar(20), @MaSanPham varchar(20))
+as
+begin
+	delete PHIEUHUYCHITIET
+	where MaPhieuHuyChiTiet=@MaPhieuHuyChiTiet and MaSanPham = @MaSanPham
+end
+
+go
+
+-- 16.4. Truy van HuyHang
+CREATE proc QueryHuyHang
+as
+begin
+	select * from View_HuyHang
+end
+go
+--exec QueryHuyHang
+
+-- 16.5. Tim kiem PhieuHuy mot tham so
+CREATE proc searchPhieuHuy(@MaPhieuHuy varchar(20))
+as
+begin
+	select *
+	from View_HuyHang where MaPhieuHuy LIKE '%' + @MaPhieuHuy + '%' 
+end
+--exec searchPhieuHuy ''
+go
+
+-- 16.6. Tim kiem PhieuHuy nhieu tham so
+CREATE proc searchPhieuHuyNhieuThamSo(@MaPhieuHuy varchar(20),@MaNhanVien varchar(20), @NgayHuy date)
+as
+begin
+	select *
+	from View_HuyHang where MaPhieuHuy LIKE '%' + @MaPhieuHuy + '%' or MaNhanVien LIKE '%' + @MaNhanVien + '%' or CONVERT(date, NgayHuy) = @NgayHuy 
+end
+--exec searchPhieuHuyNhieuThamSo 'ss','ss','2023-03-28'
+go
+
 -- 17. LOAITAIKHOAN
 -- 17.1. Them
 CREATE proc addLoaiTaiKhoan
@@ -1061,18 +1247,27 @@ go
 
 -- 10. View_BanHang
 create view View_BanHang as
-	select PX.MaPhieuXuat,PXCT.MaPhieuXuatChiTiet, PX.NgayXuat, PX.MaNhanVien, NV.HoTen, PX.MaKhachHang, KH.HoTen,TKH.MaTheKhachHang,TKH.MaLoaiTheKhachHang,LTKH.TenLoaiTheKhachHang,TKH.TichDiem, PXCT.MaSanPham, SP.TenSanPham,SP.MaLoaiSanPham, LSP.TenLoaiSanPham, PXCT.SoLuong, SP.DonGiaBan, SP.DonViTinh, (SP.DonGiaBan*PXCT.SoLuong) as ThanhTien
+	select PX.MaPhieuXuat, PX.NgayXuat ,PX.MaNhanVien, PX.MaKhachHang, PXCT.MaSanPham, SP.TenSanPham , SP.DonGiaBan, SP.DonViTinh, KM.GiaGiam,PXCT.SoLuong, PX.TrangThai, PX.GhiChu, (SP.DonGiaBan - SP.DonGiaBan*KM.GiaGiam)*PXCT.SoLuong as ThanhTien 
 	from PHIEUXUAT as PX
-	inner join KHACHHANG as KH on PX.MaKhachHang = KH.MaKhachHang
-	inner join THEKHACHHANG as TKH on TKH.MaKhachhang = KH.MaKhachHang
-	inner join LOAITHEKHACHHANG as LTKH on LTKH.MaLoaiTheKhachHang = TKH.MaLoaiTheKhachHang
-	inner join NHANVIEN as NV on PX.MaNhanVien = NV.MaNhanVien
-	inner join PHIEUXUATCHITIET as PXCT on PX.MaPhieuXuat = PXCT.MaPhieuXuat
-	inner join SANPHAM as SP on PXCT.MaSanPham = SP.MaSanPham
-	inner join LOAISANPHAM as LSP on SP.MaLoaiSanPham = LSP.MaLoaiSanPham
+	FULL OUTER JOIN PHIEUXUATCHITIET as PXCT on PX.MaPhieuXuat = PXCT.MaPhieuXuatChiTiet
+	LEFT JOIN SANPHAM as SP on PXCT.MaSanPham = SP.MaSanPham
+	LEFT JOIN KHUYENMAI as KM on SP.MaKhuyenMai = KM.MaKhuyenMai
+go
+-- 11. View_NhapHang
+create view View_NhapHang as
+	select PN.MaPhieuNhap, PN.NgayNhap ,PN.MaNhanVien, PN.MaNhaCungCap, PNCT.MaSanPham, SP.TenSanPham , PNCT.DonGiaNhap, SP.DonViTinh, PNCT.SoLuong, PN.TrangThai, PN.GhiChu, PNCT.DonGiaNhap*PNCT.SoLuong as ThanhTien 
+	from PHIEUNHAP as PN
+	FULL OUTER JOIN PHIEUNHAPCHITIET as PNCT on PN.MaPhieuNhap = PNCT.MaPhieuNhapChiTiet
+	LEFT JOIN SANPHAM as SP on PNCT.MaSanPham = SP.MaSanPham	
 go
 
-
+-- 12. View_HuyHang
+create view View_HuyHang as
+	select PH.MaPhieuHuy, PH.NgayHuy ,PH.MaNhanVien, PHCT.MaSanPham, SP.TenSanPham, SP.DonGiaBan ,SP.DonViTinh, PHCT.SoLuong, PH.TrangThai, PH.GhiChu, SP.DonGiaBan*PHCT.SoLuong as ThanhTien 
+	from PHIEUHUY as PH
+	FULL OUTER JOIN PHIEUHUYCHITIET as PHCT on PH.MaPhieuHuy = PHCT.MaPhieuHuyChiTiet
+	LEFT JOIN SANPHAM as SP on PHCT.MaSanPham = SP.MaSanPham	
+go
 
 -- TAO DU LIEU -----------------------------------------------------------------------------------------------------------
 -- 1. LOAI TAI KHOAN
@@ -1089,13 +1284,9 @@ INSERT INTO TaiKhoan (TenTaiKhoan, MatKhau, MaNhanVien, MaQuyen) VALUES ('hung',
 
 
 
--- TRUY VAN
-select TAIKHOAN.Id, TAIKHOAN.TenTaiKhoan, TAIKHOAN.MatKhau,TAIKHOAN.MaNhanVien, LOAITAIKHOAN.TenQuyen
-from TAIKHOAN 
-inner join LOAITAIKHOAN on LOAITAIKHOAN.MaQuyen = TAIKHOAN.MaQuyen
 
-    
-    
+
+
     
     
     

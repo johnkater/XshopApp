@@ -348,5 +348,26 @@ namespace GUI
             // Refresh datagridview
             dataGridView_km.DataSource = KhuyenMaiBLL.GetAllKhuyenMai();
         }
+
+        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new BanHang();
+            fm.Show();
+        }
+
+        private void nhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new NhapHang();
+            fm.Show();
+        }
+
+        private void hủyHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form fm = new NhapHang();
+            fm.Show();
+        }
     }
 }
