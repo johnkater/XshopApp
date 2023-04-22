@@ -7,14 +7,20 @@ This app also uses several other packages like -
 - django-filter
 - pillow
 - easy-thumbnails
-- dj-database-url
 
 In this app admin can manage products and orders and a customer can simply register, add items to cart and then place an order, customer can also generate an invoice of his order.
 
 To run this app on your local machine you can simply follow the instructions given below.
 
+To create virtual environment
+```shell
+python -m venv venv
+```
+To Active virtual environment
+```shell
+venv/scripts/activate
+```
 To install dependencies you can run
-
 ```shell
 pip install -r requirements.txt
 ```
@@ -36,7 +42,7 @@ python manage.py migrate
 To run server :
 
 ```shell
-python manage.py runserver
+python manage.py runserver 5000
 ```
 
-After starting server go to your web browser and visit http://localhost:8000/store and for admin module visit http://localhost:8000/admin and login using superuser credentials.
+After starting server go to your web browser and visit http://localhost:5000/store and for admin module visit http://localhost:5000/admin and login using superuser credentials.
