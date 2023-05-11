@@ -1,1 +1,1 @@
-# XshopApp
+# Shamy App
